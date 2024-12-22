@@ -6,27 +6,56 @@
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body style="display: flex; justify-content: center; align-items: center;justify-self: center;">
-  <section class="product-detail">
-    <div class="item-container">
-        <h2>Toyota Supra</h2>
-        <div class="product-info">
-            <img src="OIG11.jpeg" id="imagine" alt="LV X1">
-            <div class="product-description">
-                <h3>Features</h3>
-                <ul>
-                  <li>3.0-liter turbocharged inline-six engine</li>
-                  <li>Adaptive Variable Suspension (AVS) for improved handling</li>
-                  <li>8-speed automatic transmission with paddle shifters</li>
-                  <li>Modern infotainment system with a 6.5-inch touchscreen</li>
-                  <li>Advanced safety features including lane departure warning and automatic emergency braking</li>
-                </ul>
-                
-                <p><strong>Rental Price:</strong> $5,500/day</p>
-                <a href="payment.html" class="btn">ORDER</a>
-            </div>
-        </div>
+<body>
+  <header class="nav" role="banner">
+    <div class="logo">
+      <a href="#" aria-label="Homepage">
+        <img class="logo-1" src="renq.png" alt="Logo of the site">
+      </a>
     </div>
-</section>
+    <nav class="buttons" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-label="Go to home page">HOME</a></li>
+        <li><a href="login.html" aria-label="Go to login/signup page">LOGIN/SIGNUP</a></li>
+        <li><a href="join.html" aria-label="Go to join page">JOIN</a></li>
+        <li><a href="help.html" aria-label="Go to help page">HELP</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main class="container" role="main">
+    <section class="product" aria-labelledby="toyota-supra">
+      <img id="image" src="OIG11.jpeg" alt="Toyota Supra car">
+      <h2 id="toyota-supra">Toyota Supra</h2>
+      <p> ⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <div class="product-button">
+        <a href="item1.html" class="rent-button" aria-label="Rent Toyota Supra">RENT</a>
+      </div>
+    </section>
+    <section class="product" aria-labelledby="nissan-180sx">
+      <img id="image" src="OIG2.jpeg" alt="Nissan 180SX car">
+      <h2 id="nissan-180sx">NISSAN 180SX</h2>
+      <p> ⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <div class="product-button">
+        <a href="item2.html" class="rent-button" aria-label="Rent Nissan 180SX">RENT</a>
+      </div>
+    </section>
+    <section class="product" aria-labelledby="dodge-charger">
+      <img id="image" src="OIG3.jpeg" alt="Dodge Charger car">
+      <h2 id="dodge-charger">DODGE CHARGER</h2>
+      <p> ⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <div class="product-button">
+        <a href="item3.html" class="rent-button" aria-label="Rent Dodge Charger">RENT</a>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-labelledby="footer">
+    <ul>
+      <li><a href="tc.html" aria-label="Go to terms and conditions page">T&C</a></li>
+      <li><a href="tc.html" aria-label="Go to privacy policy page">PRIVACY POLICY</a></li>
+      <li><a href="tc.html" aria-label="Go to copyrights page">COPYRIGHTS</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
