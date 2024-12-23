@@ -5,50 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="nav">
     <div class="logo">
-      <a><img class="logo-1" src="renq.png"></a>
+      <a><img class="logo-1" src="renq.png" alt="Logo"></a>
     </div>
     <div class="buttons">
       <ul>
-      <a href="index.html" >HOME</a>
-      <a href="login.html">LOGIN/SIGNUP</a>
-      <a href="join.html">JOIN</a>
-      <a href="help.html">HELP</a>
-    </ul>
+        <a href="index.html">HOME</a>
+        <a href="login.html">LOGIN/SIGNUP</a>
+        <a href="join.html">JOIN</a>
+        <a href="help.html">HELP</a>
+      </ul>
+    </div>
+    <div class="cart">
+      <button id="cart-button">
+        🛒 Cart (<span id="cart-count">0</span>)
+      </button>
     </div>
   </header>
   
   <div class="container">
     <div class="product">
-      <img id="image" src="OIG11.jpeg">
+      <img id="image" src="OIG11.jpeg" alt="Toyota Supra">
       <h2>Toyota Supra</h2>
-      <p> ⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
       <div class="product-button">
-      <a href="item1.html" class="rent-button"> RENT</a>
+        <a href="item1.html" class="rent-button">RENT</a>
+        <button class="cart-button" data-product="Toyota Supra">Add to Cart</button>
       </div>
     </div>
     <div class="product">
-      <img id="image" src="OIG2.jpeg">
+      <img id="image" src="OIG2.jpeg" alt="Nissan 180SX">
       <h2>NISSAN 180SX</h2>
-      <p> ⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
       <div class="product-button">
-      <a href="item2.html" class="rent-button"> RENT</a>
+        <a href="item2.html" class="rent-button">RENT</a>
+        <button class="cart-button" data-product="Nissan 180SX">Add to Cart</button>
       </div>
     </div>
     <div class="product">
-      <img id="image" src="OIG3.jpeg">
+      <img id="image" src="OIG3.jpeg" alt="Dodge Charger">
       <h2>DODGE CHARGER</h2>
-      <p> ⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
       <div class="product-button">
-      <a href="item3.html" class="rent-button"> RENT</a>
+        <a href="item3.html" class="rent-button">RENT</a>
+        <button class="cart-button" data-product="Dodge Charger">Add to Cart</button>
       </div>
     </div>
   </div>
-<footer>
-  <a href="tc.html">T&C</a> | <a href="tc.html">PRIVACY POLICY</a> | <a href="tc.html">COPYRIGHTS</a>
-</footer>
+
+  <footer>
+    <a href="tc.html">T&C</a> | <a href="tc.html">PRIVACY POLICY</a> | <a href="tc.html">COPYRIGHTS</a>
+  </footer>
+
+  <div id="cart-modal" style="display: none;">
+    <h3>Cart</h3>
+    <ul id="cart-items"></ul>
+    <button onclick="clearCart()">Clear Cart</button>
+  </div>
 </body>
 </html>
+
