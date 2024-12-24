@@ -3,40 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Login</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Function to save user input in localStorage and log to console
+    function storeLoginData(event) {
+      event.preventDefault(); // Prevent form from submitting
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Check if the fields are not empty
+      if (username && password) {
+        // Save username and password in localStorage
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+
+        // Log the stored data to the console
+        console.log("Stored Username: " + localStorage.getItem('username'));
+        console.log("Stored Password: " + localStorage.getItem('password'));
+
+        alert("Login data has been stored successfully!");
+
+        // Optionally, you can redirect the user to another page after storing data
+        // window.location.href = "dashboard.html"; // Replace with your desired page
+      } else {
+        alert("Please fill in both fields.");
+      }
+    }
+  </script>
 </head>
 <body>
   <header class="nav">
     <div class="logo">
-      <a><img class="logo-1" src="renq.png"></a>
+      <a><img class="logo-1" src="renq.png" alt="Logo"></a>
     </div>
     <div class="buttons">
       <ul>
-      <a href="index.html" >HOME</a>
-      <a href="join.html">JOIN</a>
-      <a href="help.html">HELP</a>
-    </ul>
+        <a href="index.html">HOME</a>
+        <a href="join.html">JOIN</a>
+        <a href="help.html">HELP</a>
+      </ul>
     </div>
   </header>
+
   <div class="main">
-  <div class="login-container">
-    <h2>Login</h2>
-    <form action="#" method="post">
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit" id="login-button">Login</button>
-    </form>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form action="#" method="post" onsubmit="storeLoginData(event)">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" id="login-button">Login</button>
+      </form>
+      <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+    </div>
   </div>
-</div>
-<footer>
-  <a href="tc.html">T&C</a> | <a href="tc.html">PRIVACY POLICY</a> | <a href="tc.html">COPYRIGHTS</a>
-</footer>
+
+  <footer>
+    <a href="tc.html">T&C</a> | <a href="tc.html">PRIVACY POLICY</a> | <a href="tc.html">COPYRIGHTS</a>
+  </footer>
 </body>
 </html>
