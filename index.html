@@ -21,38 +21,40 @@
       </ul>
     </div>
     <div class="cart">
-      <button id="cart-button">
-        🛒 Cart (<span id="cart-count">0</span>)
-      </button>
+      <a href="cart.html">
+        <button id="cart-button">
+          🛒 Cart (<span id="cart-count">0</span>)
+        </button>
+      </a>
     </div>
   </header>
-  
+
   <div class="container">
-    <div class="product">
+    <div class="product" data-product-id="1">
       <img id="image" src="OIG11.jpeg" alt="Toyota Supra">
       <h2>Toyota Supra</h2>
       <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
       <div class="product-button">
         <a href="item1.html" class="rent-button">RENT</a>
-        <button class="cart-button" data-product="Toyota Supra">Add to Cart</button>
+        <button class="cart-button" data-product-id="1" data-product-name="Toyota Supra" data-product-image="OIG11.jpeg">🛒</button>
       </div>
     </div>
-    <div class="product">
+    <div class="product" data-product-id="2">
       <img id="image" src="OIG2.jpeg" alt="Nissan 180SX">
       <h2>NISSAN 180SX</h2>
       <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
       <div class="product-button">
         <a href="item2.html" class="rent-button">RENT</a>
-        <button class="cart-button" data-product="Nissan 180SX">Add to Cart</button>
+        <button class="cart-button" data-product-id="2" data-product-name="Nissan 180SX" data-product-image="OIG2.jpeg">🛒</button>
       </div>
     </div>
-    <div class="product">
+    <div class="product" data-product-id="3">
       <img id="image" src="OIG3.jpeg" alt="Dodge Charger">
       <h2>DODGE CHARGER</h2>
       <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
       <div class="product-button">
         <a href="item3.html" class="rent-button">RENT</a>
-        <button class="cart-button" data-product="Dodge Charger">Add to Cart</button>
+        <button class="cart-button" data-product-id="3" data-product-name="Dodge Charger" data-product-image="OIG3.jpeg">🛒</button>
       </div>
     </div>
   </div>
@@ -60,12 +62,6 @@
   <footer>
     <a href="tc.html">T&C</a> | <a href="tc.html">PRIVACY POLICY</a> | <a href="tc.html">COPYRIGHTS</a>
   </footer>
-
-  <div id="cart-modal" style="display: none;">
-    <h3>Cart</h3>
-    <ul id="cart-items"></ul>
-    <button onclick="clearCart()">Clear Cart</button>
-  </div>
 </body>
 </html>
 
