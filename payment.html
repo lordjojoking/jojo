@@ -96,7 +96,6 @@
     </form>
   </div>
 
-  <!-- Confirmation Message -->
   <div class="confirmation-message" id="confirmationMessage">
     Your order is confirmed!
   </div>
@@ -107,7 +106,7 @@
       const totalPrice = localStorage.getItem('totalPrice');
       const totalPriceElement = document.getElementById('totalPrice');
 
-      // If total price exists, display it
+      // Display the total price if it's available
       if (totalPrice) {
         totalPriceElement.textContent = `Total Price: ₹${totalPrice}`;
       } else {
@@ -116,27 +115,24 @@
 
       // Handle form submission
       document.getElementById('paymentForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
-        // Retrieve payment information
         const name = document.getElementById('name').value;
         const cardNumber = document.getElementById('card-number').value;
         const expiryDate = document.getElementById('expiry-date').value;
         const cvv = document.getElementById('cvv').value;
 
-        // Simple validation for empty fields (you can enhance this)
+        // Basic validation
         if (!name || !cardNumber || !expiryDate || !cvv) {
           alert('Please fill out all fields.');
           return;
         }
 
-        // Here you can implement payment processing logic
-
-        // After successful payment processing
+        // Payment logic here (this is just a simulation)
         document.querySelector('.complex-container-form-approach').style.display = 'none';
         document.getElementById('confirmationMessage').style.display = 'block';
 
-        // Clear cart items from localStorage (after successful payment)
+        // Clear cart items and total price from localStorage
         localStorage.removeItem('cartItems');
         localStorage.removeItem('totalPrice');
       });
