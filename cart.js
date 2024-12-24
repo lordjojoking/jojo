@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const productDiv = document.createElement('div');
       productDiv.classList.add('product');
 
-      // Create the product layout as it appears on the homepage
+      // Create the product layout
       productDiv.innerHTML = `
         <img src="${item.image}" alt="${item.name}">
         <h2>${item.name}</h2>
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="remove-button" data-product-id="${item.id}">Remove</button>
         </div>
       `;
-      
+
       cartItemsList.appendChild(productDiv);
 
       // Remove product functionality
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       removeButton.addEventListener('click', () => {
         const updatedCartItems = cartItems.filter(cartItem => cartItem.id !== item.id);
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems)); // Save the updated cart to localStorage
-        location.reload(); // Reload the page to reflect the changes
+        productDiv.remove(); // Remove the product from the DOM without refreshing the page
       });
     });
   } else {
@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // "Order Now" Button functionality
   orderNowButton.addEventListener('click', () => {
     if (cartItems.length > 0) {
-      // Save cart data to localStorage
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
       // Redirect to the payment page
       window.location.href = 'payment.html'; // Redirects to payment.html
     } else {
