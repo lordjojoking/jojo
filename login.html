@@ -6,29 +6,20 @@
   <title>Login</title>
   <link rel="stylesheet" href="style.css">
   <script>
-    // Function to save user input in localStorage and log to console
-    function storeLoginData(event) {
-      event.preventDefault(); // Prevent form from submitting
+    function validateLogin(event) {
+      event.preventDefault(); // Prevent form submission
 
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      // Check if the fields are not empty
-      if (username && password) {
-        // Save username and password in localStorage
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
+      // Retrieve stored user data from localStorage
+      const user = JSON.parse(localStorage.getItem('user'));
 
-        // Log the stored data to the console
-        console.log("Stored Username: " + localStorage.getItem('username'));
-        console.log("Stored Password: " + localStorage.getItem('password'));
-
-        alert("Login data has been stored successfully!");
-
-        // Optionally, you can redirect the user to another page after storing data
-        // window.location.href = "dashboard.html"; // Replace with your desired page
+      if (user && username === user.username && password === user.password) {
+        alert("Login successful!");
+        window.location.href = "index.html"; // Redirect to a dashboard page
       } else {
-        alert("Please fill in both fields.");
+        alert("Invalid username or password. Please try again.");
       }
     }
   </script>
@@ -36,7 +27,7 @@
 <body>
   <header class="nav">
     <div class="logo">
-      <a><img class="logo-1" src="renq.png" alt="Logo"></a>
+      <img class="logo-1" src="renq.png" alt="Logo">
     </div>
     <div class="buttons">
       <ul>
@@ -50,7 +41,7 @@
   <div class="main">
     <div class="login-container">
       <h2>Login</h2>
-      <form action="#" method="post" onsubmit="storeLoginData(event)">
+      <form action="#" method="post" onsubmit="validateLogin(event)">
         <div class="input-group">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required>
@@ -59,7 +50,7 @@
           <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" id="login-button">Login</button>
+        <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
     </div>
