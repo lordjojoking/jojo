@@ -5,17 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    function storeSignupData(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password === confirmPassword) {
+        // Save user data to localStorage
+        const user = { username, email, password }; // Create user object
+        localStorage.setItem('user', JSON.stringify(user)); // Store user data as JSON
+
+        alert("Signup successful! You can now log in.");
+        window.location.href = "login.html"; // Redirect to login page
+      } else {
+        alert("Passwords do not match. Please try again.");
+      }
+    }
+  </script>
 </head>
 <body>
   <header class="nav">
     <div class="logo">
-      <a><img class="logo-1" src="renq.png" alt="Logo"></a>
+      <img class="logo-1" src="renq.png" alt="Logo">
     </div>
     <div class="buttons">
       <ul>
-        <a href="index.html">HOME</a>
-        <a href="join.html">JOIN</a>
-        <a href="help.html">HELP</a>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="join.html">JOIN</a></li>
+        <li><a href="help.html">HELP</a></li>
       </ul>
     </div>
   </header>
@@ -23,7 +44,7 @@
   <div class="main">
     <div class="signup-container">
       <h2>Sign Up</h2>
-      <form action="#" method="post">
+      <form action="#" method="post" onsubmit="storeSignupData(event)">
         <div class="input-group">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required>
