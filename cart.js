@@ -1,10 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Define price of each product
+  const pricePerItem = 5500;
+  
   // Retrieve cart items from localStorage
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
   const cartItemsList = document.getElementById('cart-items-list');
   const orderNowButton = document.getElementById('order-now-button');
+  const totalPriceElement = document.createElement('p'); // Element to display total price
+  totalPriceElement.id = 'total-price'; // Give it an ID for styling
+  
+  // Display cart items and calculate total price
+  let totalPrice = 0; // Variable to accumulate total price
 
-  // Display cart items
   if (cartItems.length > 0) {
     cartItems.forEach(item => {
       const productDiv = document.createElement('div');
@@ -21,14 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cartItemsList.appendChild(productDiv);
 
+      // Update the total price
+      totalPrice += pricePerItem; // Add the price of this item to the total
+
       // Remove product functionality
       const removeButton = productDiv.querySelector('.remove-button');
       removeButton.addEventListener('click', () => {
+        // Remove item from the cart
         const updatedCartItems = cartItems.filter(cartItem => cartItem.id !== item.id);
         localStorage.setItem('cartItems', JSON.stringify(updatedCartItems)); // Save the updated cart to localStorage
-        productDiv.remove(); // Remove the product from the DOM without refreshing the page
+        productDiv.remove(); // Remove the product from the DOM
+
+        // Recalculate the total price
+        totalPrice -= pricePerItem; // Subtract the price of the removed item
+        totalPriceElement.textContent = `Total Price: ₹${totalPrice}`; // Update the total price displayed
       });
     });
+
+    // Display total price
+    totalPriceElement.textContent = `Total Price: ₹${totalPrice}`;
+    cartItemsList.appendChild(totalPriceElement);
   } else {
     const emptyMessage = document.createElement('p');
     emptyMessage.textContent = 'Your cart is empty.';
