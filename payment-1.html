@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Form</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    .complex-container-form-approach {
+      background-color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .complex-header-title-for-form {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .complex-input-wrapper-class {
+      margin-bottom: 15px;
+    }
+    .complex-label-for-input {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: white;
+    }
+    .complex-input-field-style {
+      background-color: #535353;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      color: black;
+    }
+    .complex-submit-button-style {
+      width: 100%;
+      padding: 12px;
+      background-color: rgb(255, 87, 51);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .complex-submit-button-style:hover {
+      background-color: rgb(131, 35, 14);
+    }
+    .confirmation-message {
+      display: none;
+      font-size: 60px;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 50px;
+    }
+    .total-price {
+      color: white;
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="complex-container-form-approach">
+    <h2 class="complex-header-title-for-form">Payment Form</h2>
+    <h3 style="text-align: center; color: azure;">PRICE = 5500/-</h3>
+    
+
+    <form id="paymentForm" action="javascript:void(0);" method="post">
+      <div class="complex-input-wrapper-class">
+        <label for="name" class="complex-label-for-input">Full Name</label>
+        <input type="text" id="name" name="name" class="complex-input-field-style" required>
+      </div>
+      <div class="complex-input-wrapper-class">
+        <label for="card-number" class="complex-label-for-input">Credit Card Number</label>
+        <input type="text" id="card-number" name="card-number" class="complex-input-field-style" required>
+      </div>
+      <div class="complex-input-wrapper-class">
+        <label for="expiry-date" class="complex-label-for-input">Expiry Date</label>
+        <input type="month" id="expiry-date" name="expiry-date" class="complex-input-field-style" required>
+      </div>
+      <div class="complex-input-wrapper-class">
+        <label for="cvv" class="complex-label-for-input">CVV</label>
+        <input type="text" id="cvv" name="cvv" class="complex-input-field-style" required>
+      </div>
+      <button type="submit" class="complex-submit-button-style">Pay Now</button>
+    </form>
+  </div>
+
+  <div class="confirmation-message" id="confirmationMessage">
+    Your order is confirmed!
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+     
+
+      // Handle form submission
+      document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const cardNumber = document.getElementById('card-number').value;
+        const expiryDate = document.getElementById('expiry-date').value;
+        const cvv = document.getElementById('cvv').value;
+
+        // Basic validation
+        if (!name || !cardNumber || !expiryDate || !cvv) {
+          alert('Please fill out all fields.');
+          return;
+        }
+
+        // Payment logic here (this is just a simulation)
+        document.querySelector('.complex-container-form-approach').style.display = 'none';
+        document.getElementById('confirmationMessage').style.display = 'block';
+
+        
+      });
+    });
+  </script>
+
+</body>
+</html>
